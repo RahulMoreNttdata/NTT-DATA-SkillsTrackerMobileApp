@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'core/constants/color.dart';
 import 'modules/dashboard/dashboard.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.indigo[600],
+        primaryColor: ColorManager.appTheme,
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see

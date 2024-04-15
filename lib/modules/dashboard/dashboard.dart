@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
-import 'my_certificates/my_certificates.dart';
+import 'package:flutter/services.dart';
+import 'package:skills_tracker_mobile_app/core/constants/color.dart';
+import '../../core/constants/common_strings.dart';
+import '../../core/constants/icons.dart';
 import 'my_profile/my_profile.dart';
-import 'my_projects/my_projects.dart';
-import 'my_skills/my_skills.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -13,19 +13,20 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  int pageIndex = 0;
-  final pages = [
-     const MyProfile(),
-     const My_Projects(),
-     const MySkills(),
-     const MyCertificate(),
-  ];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffC4DFCB),
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.grey,
+
+          // Status bar brightness (optional)
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
         leading:  Builder(
           builder: (context) => IconButton(
             icon: new Icon(Icons.menu,color: Colors.white,),
@@ -49,10 +50,10 @@ class _DashboardState extends State<Dashboard> {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.indigo,
+                color: ColorManager.appTheme,
               ), //BoxDecoration
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.indigo),
+                decoration: BoxDecoration(color: ColorManager.appTheme),
                 // currentAccountPictureSize: Size.square(50),
                 // currentAccountPicture: CircleAvatar(
                 //   backgroundColor: Colors.white,
@@ -69,94 +70,26 @@ class _DashboardState extends State<Dashboard> {
 
               ), //UserAccountDrawerHeader
             ),
-            commonListTile(' My Profile ', Icon(Icons.person)),//DrawerHeader
-            commonListTile(' My projects ', Icon(Icons.menu_book)),
-            commonListTile(' My Skills ', Icon(Icons.settings_applications)),
-            commonListTile(' My certificates ', Icon(Icons.pages)),
-            commonListTile(' Feedback ', Icon(Icons.feedback)),
+            commonListTile(StringManager.myProfileString , IconsManager.myProfileIcon),//DrawerHeader
+            commonListTile(StringManager.myProjectString, IconsManager.myProjectIcon),
+            commonListTile(StringManager.mySkillsString, IconsManager.mySkillsIcon),
+            commonListTile(StringManager.myCertificatesString, IconsManager.myCertificateIcon),
+            commonListTile(StringManager.feedbackString, IconsManager.feedbackIcon),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Divider(color: Colors.grey[500],),
             ),
-            commonListTile(' Manage account ', Icon(Icons.settings_suggest_outlined)),
-            commonListTile(' Manage projects ', Icon(Icons.shopping_bag_outlined)),
-            commonListTile(' Manage skill groups ', Icon(Icons.people)),
-            commonListTile(' Manage certificates ', Icon(Icons.fact_check_sharp)),
+            commonListTile(StringManager.manageAccountString, IconsManager.manageAccountIcon),
+            commonListTile(StringManager.manageProjectsString, IconsManager.manageProjectsIcon),
+            commonListTile(StringManager.manageSkillGroupsString, IconsManager.manageSkillGroupsIcon),
+            commonListTile(StringManager.manageCertificatesString, IconsManager.manageCertificatesIcon),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Divider(color: Colors.grey[500],),
             ),
-            commonListTile('Search employee', Icon(Icons.search)),
-            commonListTile('Download feedback', Icon(Icons.download)),
+            commonListTile(StringManager.searchEmployeeString, IconsManager.searchEmployeeIcon),
+            commonListTile(StringManager.downloadFeedbackString, IconsManager.downloadFeedbackIcon),
 
-          ],
-        ),
-      ),
-      body: pages[pageIndex],
-      bottomNavigationBar: Container(
-        height: 50,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 0;
-                });
-              },
-              icon:  Icon(
-                Icons.person,
-                color: Colors.grey[700],
-                size: 35,
-              ),
-            ),
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 1;
-                });
-              },
-              icon:  Icon(
-                Icons.menu_book,
-                color: Colors.grey[700],
-                size: 35,
-              ),
-            ),
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 2;
-                });
-              },
-              icon:   Icon(
-                Icons.settings_applications,
-                color: Colors.grey[700],
-                size: 35,
-              ),
-            ),
-            IconButton(
-              enableFeedback: false,
-              onPressed: () {
-                setState(() {
-                  pageIndex = 3;
-                });
-              },
-              icon: Icon(
-                Icons.feedback,
-                color: Colors.grey[700],
-                size: 35,
-              ),
-            ),
           ],
         ),
       ),
@@ -165,10 +98,18 @@ class _DashboardState extends State<Dashboard> {
 
   Widget commonListTile(String text, Icon icon){
   return ListTile(
-  leading: icon,
-  title:  Text(text),
-  onTap: () {
-    Navigator.pop(context);
+        leading: icon,
+        title:  Text(text),
+        onTap: () {
+          if(text==' My Profile '){
+            print("my profile");
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyProfile()),
+            );
+          }
+
   },
 );
   }
