@@ -1,4 +1,5 @@
 class StringManager{
+  static const String titleString= "Skills tracker 2.1";
 static const String myProfileString=' My Profile ';
 static const String myProjectString=' My Projects ';
 static const String mySkillsString=' My Skills ';
