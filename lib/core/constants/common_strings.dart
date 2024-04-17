@@ -11,4 +11,9 @@ static const String manageSkillGroupsString= ' Manage skill groups ';
 static const String manageCertificatesString= ' Manage certificates ';
 static const String searchEmployeeString= ' Search employee ';
 static const String downloadFeedbackString= ' Download Feedback ';
+
+static const String certificateTitleString= ' Certificates ';
+static const String certificateNameString= ' Certificate Name';
+static const String projectTitleString= ' Projects ';
+  static const String accProjNameString= ' Accounts & Projects';
 }
