@@ -18,6 +18,7 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorManager.backgroundLightGrey,
         appBar: AppBar(
           systemOverlayStyle: SystemUiOverlayStyle(
             // Status bar color
@@ -50,8 +51,8 @@ class _MyProfileState extends State<MyProfile> {
           child: ListView(
             children: [
               cardWidget(" Profile completion",
-                  "* 2 more Projects recommended to complete your profile",
-                  "* 3 more skills recommended to any of your projects to complete your profile"),
+                  "\u2022 2 more Projects recommended to complete your profile",
+                  "\u2022 3 more skills recommended to any of your projects to complete your profile"),
               Text("Aneek Patra", style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold
@@ -223,7 +224,7 @@ class _MyProfileState extends State<MyProfile> {
                               alignment: Alignment.topRight,
                               child: ElevatedButton(
                                 onPressed: () {},
-                                child: Text('+ ADD NTT DATA PROJECT',style: TextStyle(color: Colors.white),),
+                                child: Text('+ ADD PROJECT',style: TextStyle(color: Colors.white),),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: ColorManager.appTheme,
                                   shape: RoundedRectangleBorder(
@@ -469,17 +470,23 @@ class _MyProfileState extends State<MyProfile> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Certificates",style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            )),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text('+ ADD CERTIFICATION',style: TextStyle(color: Colors.white),),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: ColorManager.appTheme,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5), // <-- Radius
+                            Expanded(
+                              flex:1,
+                              child: Text("Certificates",style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              )),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: Text('+ ADD CERTIFICATION',style: TextStyle(color: Colors.white),),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: ColorManager.appTheme,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5), // <-- Radius
+                                  ),
                                 ),
                               ),
                             ),

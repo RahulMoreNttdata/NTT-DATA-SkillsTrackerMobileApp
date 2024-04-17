@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:skills_tracker_mobile_app/core/constants/common_strings.dart';
 import '../../core/utils/drawerWidget.dart';
 import 'my_profile/my_profile.dart';
 
@@ -32,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
         title: Text(
-          "Skills tracker 2.1",
+          StringManager.titleString,
           style: TextStyle(
             color:Colors.white,
             fontSize: 16,

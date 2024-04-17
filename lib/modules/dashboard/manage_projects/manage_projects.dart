@@ -1,29 +1,26 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:skills_tracker_mobile_app/core/constants/common_strings.dart';
 
 import '../../../core/constants/color.dart';
+import '../../../core/constants/common_strings.dart';
 import '../../../core/utils/drawerWidget.dart';
 
-class ManageCertificates extends StatefulWidget {
-  const ManageCertificates({super.key});
+class ManageProjects extends StatefulWidget {
+  const ManageProjects({super.key});
 
   @override
-  State<ManageCertificates> createState() => _ManageCertificatesState();
+  State<ManageProjects> createState() => _ManageProjectsState();
 }
 
-class _ManageCertificatesState extends State<ManageCertificates> {
+class _ManageProjectsState extends State<ManageProjects> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           systemOverlayStyle: SystemUiOverlayStyle(
-            // Status bar color
             statusBarColor: Colors.grey,
-
-            // Status bar brightness (optional)
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
@@ -34,7 +31,7 @@ class _ManageCertificatesState extends State<ManageCertificates> {
             ),
           ),
           title: Text(
-            StringManager.certificateTitleString,
+            StringManager.projectTitleString,
             style: TextStyle(
               color:Colors.white,
               fontSize: 16,
@@ -70,23 +67,27 @@ class _ManageCertificatesState extends State<ManageCertificates> {
                       children: [
                         Expanded(
                           flex: 1,
-                          child: DropdownSearch<String>(
-                            //to show search box
-                            // showSearchBox: true,
-                            // showSelectedItem: true,
-                            //list of dropdown items
-                            items: [
-                              "India",
-                              "USA",
-                              "Brazil",
-                              "Canada",
-                              "Australia",
-                              "Singapore"
-                            ],
-                            // label: "Country",
-                            onChanged: print,
-                            //show selected item
-                            selectedItem: "",
+                          child: Container(
+                            height: 40,
+                            child: DropdownSearch<String>(
+
+                              //to show search box
+                              // showSearchBox: true,
+                              // showSelectedItem: true,
+                              //list of dropdown items
+                              items: [
+                                "India",
+                                "USA",
+                                "Brazil",
+                                "Canada",
+                                "Australia",
+                                "Singapore"
+                              ],
+                              // label: "Country",
+                              onChanged: print,
+                              //show selected item
+                              selectedItem: "",
+                            ),
                           ),
                         ),
                         SizedBox(width: 10,),
@@ -106,13 +107,13 @@ class _ManageCertificatesState extends State<ManageCertificates> {
                         )
                       ],
                     ),
-                  //
-                   Padding(
-                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                     child: const Row(
+                    //
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(StringManager.certificateNameString ,style: TextStyle(
+                          Text(StringManager.accProjNameString ,style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),),
@@ -123,27 +124,27 @@ class _ManageCertificatesState extends State<ManageCertificates> {
                           ),),
                         ],
                       ),
-                   ),
+                    ),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("Agilityhealth-Certified AgilityHealth Facilitator\n04/03/2023"),
+                    certificatesDetailsUI("ACCA-MANAGED SERVICES BA"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("AI closed Loop Management Architecture Fundamentals"),
+                    certificatesDetailsUI("ACCA-MANAGED SERVICES BAU SUPPORT"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("AI operations (AIOps) Fundamentals"),
+                    certificatesDetailsUI("ACCA-PROJECTS AND TESTING SERVICES"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - AgileBA (Agile Business Analysis)"),
+                    certificatesDetailsUI("ACCA-SIEMENS - DATA ANALYTICS"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - AgileDS Foundation"),
+                    certificatesDetailsUI("ACCA-TEST"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - AgileDS Practitioner"),
+                    certificatesDetailsUI("ACCA-TEST1"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - AgilePM for Scrum"),
+                    certificatesDetailsUI("ACCA-TEST3"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - AgilePM Foundation"),
+                    certificatesDetailsUI("ACCA-TEST5"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - AgilePM Practitioner"),
+                    certificatesDetailsUI("ACCA-TEST 6"),
                     commonWidgetDivider(),
-                    certificatesDetailsUI("APMG - Agile Programme Management (AgilePgM)"),
+                    certificatesDetailsUI("ACCA-TESTING"),
                   ],
                 ),
               ),
@@ -161,7 +162,7 @@ class _ManageCertificatesState extends State<ManageCertificates> {
     );
   }
 
-  Widget certificatesDetailsUI(String certificateName){
+  Widget certificatesDetailsUI(String accName){
     return  Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 4.0),
       child: Row(
@@ -169,7 +170,7 @@ class _ManageCertificatesState extends State<ManageCertificates> {
         children: [
           Expanded(
             flex: 4,
-            child: Text(certificateName,style: TextStyle(
+            child: Text(accName,style: TextStyle(
               fontSize: 14,
               // overflow: TextOverflow.ellipsis
 

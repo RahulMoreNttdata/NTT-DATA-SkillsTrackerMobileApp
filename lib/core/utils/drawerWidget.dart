@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../modules/dashboard/manage_projects/manage_projects.dart';
 import '../../modules/dashboard/my_certificates/manage_certificates.dart';
 import '../../modules/dashboard/my_profile/my_profile.dart';
 import '../constants/color.dart';
@@ -67,11 +68,19 @@ class DrawerWidget extends StatelessWidget {
       leading: icon,
       title:  Text(text),
       onTap: () {
-        if(text==' My Profile'){
+        if(text==' My Profile '){
+          print(text);
           Navigator.pop(context);
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const MyProfile()),
+          );
+        }else if(text==' Manage projects '){
+          print(text);
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ManageProjects()),
           );
         }else if(text==' Manage certificates '){
           print(text);
