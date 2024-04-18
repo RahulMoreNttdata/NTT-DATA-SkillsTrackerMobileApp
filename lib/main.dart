@@ -3,6 +3,7 @@ import 'core/constants/color.dart';
 import 'modules/dashboard/dashboard.dart';
 
 void main() {
+  //run the app
   runApp(const MyApp());
 }
 
@@ -35,8 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  Dashboard(),
+      home: Dashboard(),
     );
   }
 }
-
