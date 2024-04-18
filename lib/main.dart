@@ -3,7 +3,6 @@ import 'core/constants/color.dart';
 import 'modules/dashboard/dashboard.dart';
 
 void main() {
-  //function run the app
   runApp(const MyApp());
 }
 
